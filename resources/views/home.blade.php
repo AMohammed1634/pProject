@@ -74,26 +74,99 @@ use Illuminate\Support\Facades\DB;
                 <p>Who are in extremely love with eco friendly system.</p>
                 <a class="main_btn" href="#">Shop Now</a>
             </div>
+            <style>
+                .font{
+                    font-size: 30px;
+                }
+            </style>
             <div class="timer_inner">
                 <div id="timer" class="timer">
                     <div class="timer__section days">
-                        <div class="timer__number"></div>
+                        <div class="font" id="day"></div>
                         <div class="timer__label">days</div>
                     </div>
                     <div class="timer__section hours">
-                        <div class="timer__number"></div>
+                        <div class="font" id="hour"></div>
                         <div class="timer__label">hours</div>
                     </div>
                     <div class="timer__section minutes">
-                        <div class="timer__number"></div>
+                        <div class="font" id="min"></div>
                         <div class="timer__label">Minutes</div>
                     </div>
                     <div class="timer__section seconds">
-                        <div class="timer__number"></div>
+                        <div class="font" id="sec"></div>
                         <div class="timer__label">seconds</div>
                     </div>
                 </div>
             </div>
+
+            <script>
+                var duration = <?php echo 12;?>;
+                console.log(duration);
+                var d = document.getElementById('day'),d_counter = duration;
+                var h = document.getElementById('hour'),h_counter = 0;
+                var m = document.getElementById('min'),m_counter = 0;
+                var s = document.getElementById('sec'),s_counter = 1;
+                /*
+                d.innerHTML = duration;
+                h.innerHTML = "00";
+                m.innerHTML = "00";
+                s.innerHTML = "00";
+                //setInterval(myTimer,1000);
+                function myTimer() {
+                    if(s_counter==0){
+                        s_counter = 59;
+                        if(m_counter==0){
+                            m_counter=59;
+                            if(h_counter==0){
+                                h_counter=23;
+                                if(d_counter==0){
+                                    console.log("TIME OUT");
+                                }else{
+                                    d_counter--;
+                                }
+                            }else{
+                                h_counter--;
+                            }
+                        }else {
+                            m_counter--;
+                        }
+                    }else if(s_counter > 0){
+                        s_counter--;
+                    }
+                    d.innerHTML = d_counter;
+                    h.innerHTML = h_counter;
+                    m.innerHTML = m_counter;
+                    s.innerHTML = s_counter;
+
+
+                }*/
+                console.log("ASD");
+                /**
+                 * create this timer in server side useing AJAX & JSON
+                 */
+                window.setInterval(timerServer,1000);
+                function timerServer(){
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            //document.getElementById("txtHint").innerHTML = this.responseText;
+                            //alert(this.responseText);
+                            console.log(this.responseText);
+
+                            var result = JSON.parse( this.responseText);
+                            console.log(result);
+                            d.innerHTML = result.d_counter;
+                            h.innerHTML = result.h_counter;
+                            m.innerHTML = result.m_counter;
+                            s.innerHTML = result.s_counter;
+                        }
+                    };
+                    xmlhttp.open("GET", "http://127.0.0.1:8000/getTime", true);
+                    xmlhttp.send();
+                }
+            </script>
+
         </div>
     </section>
     <!--================End Deal Timer Area =================-->

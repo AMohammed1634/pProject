@@ -11,6 +11,8 @@
 |
 */
 
+use App\Providers\RouteServiceProvider;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -63,19 +65,20 @@ Route::post('track','elementController@track')->name('track');
 Route::resource('product','ProductController');
 
  // Create A resource Product
-/*
-Route::get("/asd", function (){
-
-    return Request::ip();
-    return $this->server->get('REMOTE_ADDR');
-});
-*/
+/**/
 
 Route::get('/addWishList/{product}','WishListController@addWishList')->name('addWishList');
 
+Route::get("/setHotDeal","HotDealController@setHotDeal")->name('setHotDeal')->Middleware('auth');
 
+Route::get('/getTime','HotDealController@getTimer')->name("getTime");
+Route::post('/setHotDeal','HotDealController@storeTimer')->Middleware('auth');
 
+Route::post('/fireDeal','HotDealController@fireDeal')->Middleware('auth');///fireDeal
 
+Route::get('/updateQuantityCartincrement/{cart}','elementController@updateQuantityCartincrement')->Middleware('auth');
+
+Route::get('/updateQuantityCartDecrement/{cart}','elementController@updateQuantityCartDecrement')->Middleware('auth');
 
 
 

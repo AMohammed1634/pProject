@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="icon" href="/img/favicon.png" type="image/png">
-        <title>ListAshop</title>
+        <link rel="icon" href="/img/tshirtshop.png" type="image/png">
+        <title>TShirtShop</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="/css/bootstrap.css">
         <link rel="stylesheet" href="/vendors/linericon/style.css">
@@ -43,7 +43,7 @@
              <nav class="navbar navbar-expand-lg navbar-light main_box">
                  <div class="container">
                      <!-- Brand and toggle get grouped for better mobile display -->
-                     <a class="navbar-brand logo_h" href="{{route('home')}}"><img src="/img/logo.png" alt=""></a>
+                     <a class="navbar-brand logo_h" href="{{route('home')}}"><img src="/img/tshirtshop.png" alt=""></a>
                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                          <span class="icon-bar"></span>
                          <span class="icon-bar"></span>
@@ -60,7 +60,8 @@
                                      <!--<li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a>
                                      <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a>-->
                                      <li class="nav-item"><a class="nav-link" href="{{route('shopping_cart')}}">Shopping Cart</a></li>
-                                     <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
+                                     {{--}}<li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
+                                        --}}
                                  </ul>
                              </li>
                              <li class="nav-item submenu dropdown">
@@ -84,6 +85,12 @@
                                              <li class="nav-item">
                                                  <a class="nav-link" href="/product">Admin Elements</a>
                                              </li>
+                                             <li class="nav-item" id="deal_asd">
+                                                 <a class="nav-link" style="cursor: pointer"
+                                                    href="{{route("setHotDeal")}}">
+                                                    Set ٍHot Deal</a>
+                                             </li>
+
                                          @endif
                                      @endif
                                  </ul>
@@ -108,7 +115,7 @@
                                          padding: auto;
                                      }
                                  </style>
-                                 <a href="#" class="cart">
+                                 <a href="{{route('shopping_cart')}}" class="cart">
                                      <i class="lnr lnr lnr-cart" ></i>
                                      @if(Auth::check())
 
@@ -121,15 +128,14 @@
                              ?>
                              @if(Auth::check())
                              <li class="nav-item">
-                                <a href="{{route('logout')}}" class="search">LogOUt</a>
+                                <a href="{{route('logout')}}" >LogOUt</a>
                                  <a href="{{route('viewProfile',Auth::user()->id)}}" title="{{Auth::user()->name}}"
                                     class="search">
-                                     @if(Auth::user()->img == NULL)
-                                        <i class="lnr lnr-user"></i></a>
-                                     @else
+
                                      <img src="/storage/profile_images/{{Auth::user()->img}}" alt=""
                                           style="width: 50px;height: 50px; border-radius: 50%;">
-                                     @endif
+                                 </a>
+
                              </li>
                              @else
                                  <li class="nav-item">

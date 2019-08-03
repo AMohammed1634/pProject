@@ -141,4 +141,18 @@ class elementController extends Controller
         //return $order->shopping;
         return view('tracking',compact('order'))->withErrors('check');
     }
+    public function updateQuantityCartincrement(shopping_cart $cart){
+        $cart->quantity ++;
+        $cart->save();
+        return json_encode(array('qua'=>$cart->quantity));
+    }
+    /**
+     *
+     * updateQuantityCartDecrement
+     */
+    public function updateQuantityCartDecrement(shopping_cart $cart){
+        $cart->quantity --;
+        $cart->save();
+        return json_encode(array('qua'=>$cart->quantity));
+    }
 }

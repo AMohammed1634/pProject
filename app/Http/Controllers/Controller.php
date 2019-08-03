@@ -164,4 +164,13 @@ class Controller extends BaseController
         $user->save();
         return redirect()->back();
     }
+
+    /**
+     * create function to set the duration of hot deal
+     */
+
+
+
+
+
 }

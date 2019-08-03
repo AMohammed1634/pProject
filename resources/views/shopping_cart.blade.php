@@ -35,8 +35,9 @@
                         </thead>
                         <tbody>
                         <!--  -->
-                        <?php $total = 0;?>
+                        <?php $total = 0;$i=-1;$arr = array();?>
                         @foreach($carts as $cart)
+                            <?php $i++; ?>
                             <tr>
                                 <td>
                                     <div class="media">
@@ -54,14 +55,18 @@
                                 </td>
                                 <td>
                                     <div class="product_count">
-                                        <input type="text" name="qty" id="sst" maxlength="12" value="{{$cart->quantity}}" title="Quantity:" class="input-text qty">
-                                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ))
-                                        {result.value++;<?php $cart->quantity++; ?>}return false;" class="increase items-count" type="button">
+
+
+                                        <input type="text" name="qty" id="{{$cart->id}}" maxlength="12" value="{{$cart->quantity}}" title="Quantity:" class="input-text qty">
+                                        <button onclick="var result = document.getElementById('{{$cart->id}}'); var sst = result.value; if( !isNaN( sst ))
+                                        {result.value++;increment({{$cart->id}});}return false;" class="increase items-count" type="button">
                                             <i class="lnr lnr-chevron-up"></i>
                                         </button>
-                                        <button onclick="var result = document.getElementById('sst'); var sst = result.value;
-                                                if( !isNaN( sst ) &amp;&amp; sst > 0 )
-                                                {result.value--; <?php $cart->quantity--; ?>}return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                                        <button onclick="var result = document.getElementById('{{$cart->id}}'); var sst = result.value;
+                                                if( !isNaN( sst ) &amp;&amp; sst > 1 )
+                                                {result.value--;decreament({{$cart->id}}) }return false;" class="reduced items-count" type="button">
+                                            <i class="lnr lnr-chevron-down"></i></button>
+
                                     </div>
                                 </td>
                                 <td>
@@ -71,7 +76,40 @@
                             </tr>
                         @endforeach
                         <!--  -->
+                        <script>
+                            /**
+                             * stablish connection on server to update it
+                             */
+                            function increment(id){
+                                var xml = new XMLHttpRequest();
+                                xml.onreadystatechange = function () {
+                                    if(xml.status == 200 && xml.readyState === 4){
 
+                                        console.log(xml.responseText);
+                                        var q = JSON.parse(xml.responseText);
+                                        console.log(q);
+                                        document.getElementById(id).innerHTML = q.qua;
+                                    }
+                                }
+                                xml.open('GET','http://127.0.0.1:8000/updateQuantityCartincrement/'+id,1);
+                                xml.send();
+                            }
+                            function decreament(id){
+                                var xml = new XMLHttpRequest();
+                                xml.onreadystatechange = function () {
+                                    if(xml.status == 200 && xml.readyState === 4){
+
+                                        console.log(xml.responseText);
+                                        var q = JSON.parse(xml.responseText);
+                                        console.log(q);
+                                        document.getElementById(id).innerHTML = q.qua;
+                                    }
+                                }
+                                xml.open('GET','http://127.0.0.1:8000/updateQuantityCartDecrement/'+id,1);
+                                xml.send();
+                            }
+
+                        </script>
                         <tr>
                             <td>
 
@@ -83,7 +121,7 @@
                                 <h5>Subtotal</h5>
                             </td>
                             <td>
-                                <h5>${{$total}}.00</h5>
+                                <h5>${{$total}}</h5>
                             </td>
                         </tr>
 
