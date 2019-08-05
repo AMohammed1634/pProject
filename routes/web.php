@@ -76,11 +76,15 @@ Route::post('/setHotDeal','HotDealController@storeTimer')->Middleware('auth');
 
 Route::post('/fireDeal','HotDealController@fireDeal')->Middleware('auth');///fireDeal
 
+/**
+ * create an API to Update Quantity
+ */
 Route::get('/updateQuantityCartincrement/{cart}','elementController@updateQuantityCartincrement')->Middleware('auth');
 
 Route::get('/updateQuantityCartDecrement/{cart}','elementController@updateQuantityCartDecrement')->Middleware('auth');
-
-
+/**
+ * create an API to Update Quantity
+ */
 
 
 

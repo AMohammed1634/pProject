@@ -26,7 +26,7 @@
             <div class="row s_product_inner">
                 <?php
                 use Illuminate\Support\Facades\DB;
-                $product = DB::table('products')->where('id','=',request('id'))->first();
+                $product = App\product::where('id','=',request('id'))->first();
                 ?>
                 <div class="col-lg-6">
                     <div class="s_product_img">
@@ -85,7 +85,7 @@
                             <h2>${{$product->price}}</h2>
                         @endif
                         <ul class="list">
-                            <li><a class="active" href="#"><span>Category</span> :
+                            <li><a class="active" href="/viewCategory/{{$product->category[0]->id}}" ><span>Category</span> :{{$product->category[0]->name}}
                                 </a></li>
                             <li><a href="#"><span>Availibility</span> : In Stock</a></li>
                         </ul>
@@ -144,19 +144,45 @@
                                 <div class="col-6">
                                     <div class="box_total">
                                         <h5>Overall</h5>
-                                        <h4>4.0</h4>
-                                        <h6>(03 Reviews)</h6>
+                                        <?php
+                                        $avg = App\review::where([
+                                            ['product_id' ,$product->id]
+                                        ])->avg('rating');
+                                        $num = App\review::where([
+                                            ['product_id' ,$product->id]
+                                        ])->count();
+                                        ?>
+                                        <h4>{{$avg}}</h4>
+                                        <h6>({{$num}} Reviews)</h6>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="rating_list">
                                         <h3>Based on 3 Reviews</h3>
                                         <ul class="list">
-                                            <li><a href="#">5 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                                            <li><a href="#">4 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                                            <li><a href="#">3 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                                            <li><a href="#">2 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
-                                            <li><a href="#">1 Star <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 01</a></li>
+                                            <?php
+                                            //review
+
+                                            ?>
+
+                                            @foreach($product->review->unique('rating') as $review)
+
+                                            <li><a href="#">{{$review->rating}} Star
+                                                    @for($i=1 ; $i<=$review->rating;$i++)
+                                                    <i class="fa fa-star"></i>
+                                                    @endfor
+                                                    @for($i=$review->rating+1 ; $i<= 5 ;$i++)
+                                                        <i class="fa fa-star" style="color: #DDDDDD"></i>
+                                                    @endfor
+                                                    <?php
+                                                    $num = App\review::where([['rating',$review->rating],
+                                                                                ['product_id',$product->id]])->count();
+                                                    ?>
+
+                                                    {{$num}} User/s
+                                                </a>
+                                            </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>
@@ -193,23 +219,167 @@
                                 @endforeach
                             </div>
                         </div>
+                        <style>
+                            .black{
+                                color: #DDD;
+                            }
+                        </style>
                         <div class="col-lg-6">
                             <div class="review_box">
                                 <h4>Add a Review</h4>
                                 <p>Your Rating:</p>
                                 <ul class="list">
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                    <li>
+                                        <a id="star1" onclick="star1_call">
+                                            <i class="fa fa-star"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a  id="star2">
+                                            <i class="fa fa-star"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="star3">
+                                            <i class="fa fa-star"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="star4">
+                                            <i class="fa fa-star"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a  id="star5">
+                                            <i class="fa fa-star"></i>
+                                        </a>
+                                    </li>
                                 </ul>
+                                <script>
+                                    var s1= document.getElementById('star1');
+                                    var s2= document.getElementById('star2');
+                                    var s3= document.getElementById('star3');
+                                    var s4= document.getElementById('star4');
+                                    var s5= document.getElementById('star5');
+                                    s1.onmouseover = function(){
+                                        s1.style.color = "#fbd600";
+                                        s2.style.color = s3.style.color = s4.style.color = s5.style.color =
+                                            "#DDD";
+                                    }
+                                    s1.onmouseleave = function () {
+                                        s1.style.color = "#fbd600";
+                                        s2.style.color = "#fbd600";
+                                        s3.style.color = "#fbd600";
+                                        s4.style.color = "#fbd600";
+                                        s5.style.color = "#fbd600";
+                                    }
+                                    s2.onmouseover = function(){
+                                        s2.style.color = "#fbd600";
+                                        s1.style.color = "#fbd600";
+                                         s3.style.color = s4.style.color = s5.style.color =
+                                            "#DDD";
+                                    }
+                                    s2.onmouseleave = function () {
+
+                                        s1.style.color = "#fbd600";
+                                        s2.style.color = "#fbd600";
+                                        s3.style.color = "#fbd600";
+                                        s4.style.color = "#fbd600";
+                                        s5.style.color = "#fbd600";
+                                    }
+                                    s3.onmouseover = function(){
+                                        s2.style.color = "#fbd600";
+                                        s1.style.color = "#fbd600";
+                                        s3.style.color = "#fbd600";
+                                        s4.style.color = s5.style.color =
+                                            "#DDD";
+                                    }
+                                    s3.onmouseleave = function () {
+                                        s1.style.color = "#fbd600";
+                                        s2.style.color = "#fbd600";
+                                        s3.style.color = "#fbd600";
+                                        s4.style.color = "#fbd600";
+                                        s5.style.color = "#fbd600";
+                                    }
+                                    s4.onmouseover = function(){
+                                        s2.style.color = "#fbd600";
+                                        s1.style.color = "#fbd600";
+                                        s3.style.color = "#fbd600";
+                                        s4.style.color = "#fbd600";
+                                        s5.style.color =
+                                            "#DDD";
+                                    }
+                                    s4.onmouseleave = function () {
+                                        s1.style.color = "#fbd600";
+                                        s2.style.color = "#fbd600";
+                                        s3.style.color = "#fbd600";
+                                        s4.style.color = "#fbd600";
+                                        s5.style.color = "#fbd600";
+                                    }
+                                    //var inp = document.getElementById('rating');
+                                     document.getElementById('star1').onclick = function  () {
+                                        document.getElementById('rating').value = "1";
+                                        
+                                         document.getElementById('star1').style.color = "#fbd600";
+                                         document.getElementById('star2').style.color = "#DDD";
+                                         document.getElementById('star3').style.color = "#DDD";
+                                         document.getElementById('star4').style.color = "#DDD";
+                                         document.getElementById('star5').style.color = "#DDD";
+                                         document.getElementById('star1').onmouseleave = function () {}
+                                        //alert("asd");
+                                    }
+
+                                    document.getElementById('star2').onclick = function  () {
+                                        document.getElementById('rating').value = "2";
+                                        document.getElementById('star1').style.color = "#fbd600";
+                                        document.getElementById('star2').style.color = "#fbd600";
+                                        document.getElementById('star3').style.color = "#DDD";
+                                        document.getElementById('star4').style.color = "#DDD";
+                                        document.getElementById('star5').style.color = "#DDD";
+                                        document.getElementById('star2').onmouseleave = function () {}
+
+                                        //alert("asd");
+                                    }
+                                    document.getElementById('star3').onclick = function  () {
+                                        document.getElementById('rating').value = "3";
+                                        document.getElementById('star1').style.color = "#fbd600";
+                                        document.getElementById('star2').style.color = "#fbd600";
+                                        document.getElementById('star3').style.color = "#fbd600";
+                                        document.getElementById('star4').style.color = "#DDD";
+                                        document.getElementById('star5').style.color = "#DDD";
+                                        document.getElementById('star3').onmouseleave = function () {}
+                                        //alert("asd");
+                                    }
+                                    document.getElementById('star4').onclick = function  () {
+                                        document.getElementById('rating').value = "4";
+                                        document.getElementById('star1').style.color = "#fbd600";
+                                        document.getElementById('star2').style.color = "#fbd600";
+                                        document.getElementById('star3').style.color = "#fbd600";
+                                        document.getElementById('star4').style.color = "#fbd600";
+                                        document.getElementById('star5').style.color = "#DDD";
+                                        document.getElementById('star4').onmouseleave = function () {}
+
+                                        //alert("asd");
+                                    }
+                                    document.getElementById('star5').onclick = function  () {
+                                        document.getElementById('rating').value = "5";
+                                        document.getElementById('star1').style.color = "#fbd600";
+                                        document.getElementById('star2').style.color = "#fbd600";
+                                        document.getElementById('star3').style.color = "#fbd600";
+                                        document.getElementById('star4').style.color = "#fbd600";
+                                        document.getElementById('star5').style.color = "#fbd600";
+                                        document.getElementById('star5').onmouseleave = function () {}
+
+                                        //alert("asd");
+                                    }
+                                </script>
                                 <p>Outstanding</p>
                                 <form class="row contact_form" action="/addReview/{{$product->id}}" method="post" id="contactForm" novalidate="novalidate">
                                     {{csrf_field()}}
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="name" name="rating" placeholder="Your Rating Of Love ">
+                                            <!--<input type="text" class="form-control" id="name" name="rating" placeholder="Your Rating Of Love ">-->
+                                            <input type="hidden" class="form-control" id="rating" name="rating" value="5">
                                         </div>
                                     </div>
                                     <div class="col-md-12">

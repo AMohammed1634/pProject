@@ -95,6 +95,7 @@ class Controller extends BaseController
         return \redirect(route('home'));
     }
     public function viewProduct($id){
+
         return view('product');
     }
 
@@ -131,6 +132,9 @@ class Controller extends BaseController
         if(\request('rating')> 5 || \request('rating')<1){
             return redirect()->back()->withErrors( 'The Rating Must be In Range 1 -> 5');
         }
+        $this->validate(\request(),[
+            'message'=>'required'
+        ]);
         $review = new review();
         $review->review = request('message');
         $review->user_id = \auth()->user()->id;
