@@ -86,7 +86,15 @@ Route::get('/updateQuantityCartDecrement/{cart}','elementController@updateQuanti
  * create an API to Update Quantity
  */
 
+/**
+ * contact
+ */
 
+Route::post('/contact','ContactController@sendMail')->name('sndmali');
+
+/**
+ * contact
+ */
 
 
 

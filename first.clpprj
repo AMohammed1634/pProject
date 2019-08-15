@@ -11,6 +11,10 @@
  <removed value=";"/>
  <added value=""/>
  <lastopfiles>
+  <file name="C:\pro\first\resources\views\category.blade.php"/>
+  <file name="C:\pro\first\resources\views\masterView.blade.php"/>
+  <file name="C:\pro\first\routes\web.php"/>
+  <file name="C:\pro\first\app\Http\Controllers\Controller.php"/>
   <lastactivefile name=""/>
  </lastopfiles>
  <errors version="1.3">
@@ -59,34 +63,34 @@
  <cakedata/>
  <dplmenupath/>
  <laravael>
-  <facade class="App" name="app"/>
-  <facade class="Auth" name="auth"/>
-  <facade class="Blade" name="view"/>
-  <facade class="Cache" name="cache"/>
-  <facade class="Config" name="config"/>
-  <facade class="Cookie" name="cookie"/>
-  <facade class="Crypt" name="encrypter"/>
-  <facade class="DB" name="db"/>
-  <facade class="Event" name="events"/>
-  <facade class="Facade" name="Facade does not implement getFacadeAccessor method."/>
-  <facade class="File" name="files"/>
-  <facade class="Hash" name="hash"/>
-  <facade class="Input" name="request"/>
-  <facade class="Lang" name="translator"/>
-  <facade class="Log" name="log"/>
-  <facade class="Mail" name="mailer"/>
-  <facade class="Password" name="auth.password"/>
-  <facade class="Queue" name="queue"/>
-  <facade class="Redirect" name="redirect"/>
-  <facade class="Redis" name="redis"/>
-  <facade class="Request" name="request"/>
-  <facade class="Route" name="router"/>
-  <facade class="Schema" name="db"/>
-  <facade class="Session" name="session"/>
-  <facade class="Storage" name="filesystem"/>
-  <facade class="URL" name="url"/>
-  <facade class="Validator" name="validator"/>
-  <facade class="View" name="view"/>
+  <facade name="app" class="App"/>
+  <facade name="auth" class="Auth"/>
+  <facade name="view" class="Blade"/>
+  <facade name="cache" class="Cache"/>
+  <facade name="config" class="Config"/>
+  <facade name="cookie" class="Cookie"/>
+  <facade name="encrypter" class="Crypt"/>
+  <facade name="db" class="DB"/>
+  <facade name="events" class="Event"/>
+  <facade name="Facade does not implement getFacadeAccessor method." class="Facade"/>
+  <facade name="files" class="File"/>
+  <facade name="hash" class="Hash"/>
+  <facade name="request" class="Input"/>
+  <facade name="translator" class="Lang"/>
+  <facade name="log" class="Log"/>
+  <facade name="mailer" class="Mail"/>
+  <facade name="auth.password" class="Password"/>
+  <facade name="queue" class="Queue"/>
+  <facade name="redirect" class="Redirect"/>
+  <facade name="redis" class="Redis"/>
+  <facade name="request" class="Request"/>
+  <facade name="router" class="Route"/>
+  <facade name="db" class="Schema"/>
+  <facade name="session" class="Session"/>
+  <facade name="filesystem" class="Storage"/>
+  <facade name="url" class="URL"/>
+  <facade name="validator" class="Validator"/>
+  <facade name="view" class="View"/>
   <file name="C:\pro\first\vendor\laravel\framework\src\Illuminate\Cache\CacheServiceProvider.php">
    <type name="memcached.connector" class="MemcachedConnector"/>
   </file>
@@ -6824,13 +6828,13 @@
   <file name="C:\pro\first\vendor\dnoegel\php-xdg-base-dir\src\Xdg.php" crc="1561831712213"/>
   <file name="C:\pro\first\vendor\dnoegel\php-xdg-base-dir\composer.json" crc="1561831712209"/>
   <file name="C:\pro\first\vendor\composer\installed.json" crc="1561831801213"/>
-  <file name="C:\pro\first\vendor\composer\ClassLoader.php" crc="1564478953526"/>
-  <file name="C:\pro\first\vendor\composer\autoload_static.php" crc="1564478953517"/>
-  <file name="C:\pro\first\vendor\composer\autoload_real.php" crc="1564478953522"/>
-  <file name="C:\pro\first\vendor\composer\autoload_psr4.php" crc="1564478953203"/>
-  <file name="C:\pro\first\vendor\composer\autoload_namespaces.php" crc="1564478953200"/>
-  <file name="C:\pro\first\vendor\composer\autoload_files.php" crc="1564478953211"/>
-  <file name="C:\pro\first\vendor\composer\autoload_classmap.php" crc="1564478953207"/>
+  <file name="C:\pro\first\vendor\composer\ClassLoader.php" crc="1564781802927"/>
+  <file name="C:\pro\first\vendor\composer\autoload_static.php" crc="1564781802924"/>
+  <file name="C:\pro\first\vendor\composer\autoload_real.php" crc="1564781802926"/>
+  <file name="C:\pro\first\vendor\composer\autoload_psr4.php" crc="1564781802875"/>
+  <file name="C:\pro\first\vendor\composer\autoload_namespaces.php" crc="1564781802873"/>
+  <file name="C:\pro\first\vendor\composer\autoload_files.php" crc="1564781802882"/>
+  <file name="C:\pro\first\vendor\composer\autoload_classmap.php" crc="1564781802879"/>
   <file name="C:\pro\first\vendor\beyondcode\laravel-dump-server\src\RequestContextProvider.php" crc="1561831721063"/>
   <file name="C:\pro\first\vendor\beyondcode\laravel-dump-server\src\DumpServerServiceProvider.php" crc="1561831721055"/>
   <file name="C:\pro\first\vendor\beyondcode\laravel-dump-server\src\DumpServerCommand.php" crc="1561831721053"/>
@@ -6838,7 +6842,7 @@
   <file name="C:\pro\first\vendor\beyondcode\laravel-dump-server\config\config.php" crc="1561831721048"/>
   <file name="C:\pro\first\vendor\beyondcode\laravel-dump-server\helpers.php" crc="1561831721049"/>
   <file name="C:\pro\first\vendor\beyondcode\laravel-dump-server\composer.json" crc="1561831721044"/>
-  <file name="C:\pro\first\vendor\autoload.php" crc="1564478953520"/>
+  <file name="C:\pro\first\vendor\autoload.php" crc="1564781802925"/>
   <file name="C:\pro\first\tests\Unit\ExampleTest.php" crc="1561831426082"/>
   <file name="C:\pro\first\tests\Feature\ExampleTest.php" crc="1561831426077"/>
   <file name="C:\pro\first\tests\TestCase.php" crc="1561831426079"/>
@@ -6847,10 +6851,11 @@
   <file name="C:\pro\first\storage\framework\views\eadd71895a4823550655592606cd3a0a1998457b.php" crc="1562601752122"/>
   <file name="C:\pro\first\storage\framework\views\e5f81378b176860a649da3e6c1863794823fd238.php" crc="1562190674586"/>
   <file name="C:\pro\first\storage\framework\views\d11aec28c4ca37f01e0f9018e6e926a8c856eaad.php" crc="1561848306037"/>
-  <file name="C:\pro\first\storage\framework\views\cea7b4fa14f6469d26e307065134815d6557d490.php" crc="1562588545087"/>
+  <file name="C:\pro\first\storage\framework\views\cea7b4fa14f6469d26e307065134815d6557d490.php" crc="1564864228810"/>
   <file name="C:\pro\first\storage\framework\views\b303e11f4b9180de9bd992292315ff70da5f91ab.php" crc="1564140730145"/>
   <file name="C:\pro\first\storage\framework\views\a20f99dc6f5c42d336acd08c7d58f31dfc02f8b7.php" crc="1561848306096"/>
-  <file name="C:\pro\first\storage\framework\views\98e17257123a5691c0aba81ea831a2f1e54dd233.php" crc="1564520889770"/>
+  <file name="C:\pro\first\storage\framework\views\98e17257123a5691c0aba81ea831a2f1e54dd233.php" crc="1565030251022"/>
+  <file name="C:\pro\first\storage\framework\views\8d6cd4644c34a6b6883d4dd456c626f73603dc60.php" crc="1564783828164"/>
   <file name="C:\pro\first\storage\framework\views\72aae28f534a5e6c7ac59c5fb53c268e2dc10a0a.php" crc="1564525043467"/>
   <file name="C:\pro\first\storage\framework\views\6cb6c306c7c3836c59e96918c3c3b8f0af4cabd2.php" crc="1564220515701"/>
   <file name="C:\pro\first\storage\framework\views\594621b734400b6a35bf02a57d3fef3fe7e8466d.php" crc="1562493041809"/>
@@ -6858,27 +6863,28 @@
   <file name="C:\pro\first\storage\framework\views\4812eadb222bc67c75ddc255ad076351452518c8.php" crc="1561972333897"/>
   <file name="C:\pro\first\storage\framework\views\40998f11856ba46da7a3a38ba5c4b4f5ae7558ba.php" crc="1562339715317"/>
   <file name="C:\pro\first\storage\framework\views\3344f1d302445ed322c055bf5e24431b7eca24d8.php" crc="1564426436794"/>
-  <file name="C:\pro\first\storage\framework\views\2e0ed18aa59736876e85546a40ab4893c1eb94ad.php" crc="1561895439053"/>
-  <file name="C:\pro\first\storage\framework\views\1b68892df87375c05430ac28e1d4f470a6fbb622.php" crc="1564142034043"/>
-  <file name="C:\pro\first\storage\framework\views\0cabb97cca7bfe8529f9f5fbb50436724491a2b7.php" crc="1564521205972"/>
-  <file name="C:\pro\first\storage\framework\views\03ebbb4c8c9bd6f77651f1faa8449e840e207a89.php" crc="1563477684178"/>
-  <file name="C:\pro\first\storage\framework\views\0254ec1530da7910ab6cb70be7477c000bb6c896.php" crc="1564520658470"/>
-  <file name="C:\pro\first\routes\web.php" crc="1564613382708"/>
+  <file name="C:\pro\first\storage\framework\views\2e0ed18aa59736876e85546a40ab4893c1eb94ad.php" crc="1565089225368"/>
+  <file name="C:\pro\first\storage\framework\views\1b68892df87375c05430ac28e1d4f470a6fbb622.php" crc="1565597981798"/>
+  <file name="C:\pro\first\storage\framework\views\0cabb97cca7bfe8529f9f5fbb50436724491a2b7.php" crc="1564743719250"/>
+  <file name="C:\pro\first\storage\framework\views\03ebbb4c8c9bd6f77651f1faa8449e840e207a89.php" crc="1564684924270"/>
+  <file name="C:\pro\first\storage\framework\views\0254ec1530da7910ab6cb70be7477c000bb6c896.php" crc="1565031411272"/>
+  <file name="C:\pro\first\routes\web.php" crc="1565089158888"/>
   <file name="C:\pro\first\routes\console.php" crc="1561831426039"/>
   <file name="C:\pro\first\routes\channels.php" crc="1561831426038"/>
   <file name="C:\pro\first\routes\api.php" crc="1561831426037"/>
   <file name="C:\pro\first\resources\views\welcome.blade.php" crc="1561847798208"/>
   <file name="C:\pro\first\resources\views\tracking.blade.php" crc="1564140651605"/>
-  <file name="C:\pro\first\resources\views\shopping_cart.blade.php" crc="1562588534563"/>
+  <file name="C:\pro\first\resources\views\shopping_cart.blade.php" crc="1564864224304"/>
   <file name="C:\pro\first\resources\views\register.blade.php" crc="1562190671991"/>
   <file name="C:\pro\first\resources\views\profile.blade.php" crc="1564525041595"/>
-  <file name="C:\pro\first\resources\views\product.blade.php" crc="1564520645583"/>
-  <file name="C:\pro\first\resources\views\masterView.blade.php" crc="1564684598261"/>
+  <file name="C:\pro\first\resources\views\product.blade.php" crc="1565031409873"/>
+  <file name="C:\pro\first\resources\views\masterView.blade.php" crc="1565597961446"/>
   <file name="C:\pro\first\resources\views\login.blade.php" crc="1564141995328"/>
-  <file name="C:\pro\first\resources\views\home.blade.php" crc="1564521204408"/>
+  <file name="C:\pro\first\resources\views\hotDeal.blade.php" crc="1564783800474"/>
+  <file name="C:\pro\first\resources\views\home.blade.php" crc="1564743428148"/>
   <file name="C:\pro\first\resources\views\elements.blade.php" crc="1564141995240"/>
   <file name="C:\pro\first\resources\views\edit.blade.php" crc="1564141995184"/>
-  <file name="C:\pro\first\resources\views\contact.blade.php" crc="1561895437581"/>
+  <file name="C:\pro\first\resources\views\contact.blade.php" crc="1565089224048"/>
   <file name="C:\pro\first\resources\views\checkout.blade.php" crc="1562601502162"/>
   <file name="C:\pro\first\resources\views\category.blade.php" crc="1564524532599"/>
   <file name="C:\pro\first\resources\views\bestItems.blade.php" crc="1564525687406"/>
@@ -6947,6 +6953,8 @@
   <file name="C:\pro\first\public\index.php" crc="1561831425980"/>
   <file name="C:\pro\first\public\.htaccess" crc="1561831425972"/>
   <file name="C:\pro\first\database\seeds\DatabaseSeeder.php" crc="1561831425966"/>
+  <file name="C:\pro\first\database\migrations\2019_08_02_213546_add_fire_to_table_hot_deals.php" crc="1564784215297"/>
+  <file name="C:\pro\first\database\migrations\2019_08_02_105900_create_hot_deals_table.php" crc="1564744126670"/>
   <file name="C:\pro\first\database\migrations\2019_07_30_092815_create_wish_lists_table.php" crc="1564479157339"/>
   <file name="C:\pro\first\database\migrations\2019_07_15_102449_add_ordered_to_table_shopping_carts.php" crc="1563186354215"/>
   <file name="C:\pro\first\database\migrations\2019_07_08_080950_create_orders_table.php" crc="1562601094659"/>
@@ -6965,7 +6973,7 @@
   <file name="C:\pro\first\config\session.php" crc="1561831425923"/>
   <file name="C:\pro\first\config\services.php" crc="1561831425922"/>
   <file name="C:\pro\first\config\queue.php" crc="1561831425921"/>
-  <file name="C:\pro\first\config\mail.php" crc="1561831425920"/>
+  <file name="C:\pro\first\config\mail.php" crc="1565116458236"/>
   <file name="C:\pro\first\config\logging.php" crc="1561831425919"/>
   <file name="C:\pro\first\config\hashing.php" crc="1561831425918"/>
   <file name="C:\pro\first\config\filesystems.php" crc="1562517181026"/>
@@ -6974,8 +6982,8 @@
   <file name="C:\pro\first\config\broadcasting.php" crc="1561831425896"/>
   <file name="C:\pro\first\config\auth.php" crc="1561831425894"/>
   <file name="C:\pro\first\config\app.php" crc="1561831425893"/>
-  <file name="C:\pro\first\bootstrap\cache\services.php" crc="1564478959703"/>
-  <file name="C:\pro\first\bootstrap\cache\packages.php" crc="1564478960431"/>
+  <file name="C:\pro\first\bootstrap\cache\services.php" crc="1564781805475"/>
+  <file name="C:\pro\first\bootstrap\cache\packages.php" crc="1564781805962"/>
   <file name="C:\pro\first\bootstrap\app.php" crc="1561831425885"/>
   <file name="C:\pro\first\app\Providers\RouteServiceProvider.php" crc="1561831425876"/>
   <file name="C:\pro\first\app\Providers\EventServiceProvider.php" crc="1561831425875"/>
@@ -6996,20 +7004,23 @@
   <file name="C:\pro\first\app\Http\Controllers\Auth\ForgotPasswordController.php" crc="1561831425789"/>
   <file name="C:\pro\first\app\Http\Controllers\WishListController.php" crc="1564520964537"/>
   <file name="C:\pro\first\app\Http\Controllers\ProductController.php" crc="1564141995103"/>
-  <file name="C:\pro\first\app\Http\Controllers\elementController.php" crc="1564141995129"/>
-  <file name="C:\pro\first\app\Http\Controllers\Controller.php" crc="1564478341338"/>
+  <file name="C:\pro\first\app\Http\Controllers\HotDealController.php" crc="1564842956393"/>
+  <file name="C:\pro\first\app\Http\Controllers\elementController.php" crc="1564864128123"/>
+  <file name="C:\pro\first\app\Http\Controllers\Controller.php" crc="1565029257459"/>
+  <file name="C:\pro\first\app\Http\Controllers\ContactController.php" crc="1565126617530"/>
   <file name="C:\pro\first\app\Http\Kernel.php" crc="1561831425823"/>
   <file name="C:\pro\first\app\Exceptions\Handler.php" crc="1561831425769"/>
   <file name="C:\pro\first\app\Console\Kernel.php" crc="1561831425731"/>
   <file name="C:\pro\first\app\wishList.php" crc="1564479210846"/>
   <file name="C:\pro\first\app\User.php" crc="1564518574350"/>
   <file name="C:\pro\first\app\shopping_cart.php" crc="1564169108153"/>
-  <file name="C:\pro\first\app\review.php" crc="1562495448705"/>
+  <file name="C:\pro\first\app\review.php" crc="1565030319925"/>
   <file name="C:\pro\first\app\product.php" crc="1564518633094"/>
   <file name="C:\pro\first\app\order.php" crc="1564139235337"/>
+  <file name="C:\pro\first\app\hotDeal.php" crc="1564743540841"/>
   <file name="C:\pro\first\app\department.php" crc="1562319645671"/>
   <file name="C:\pro\first\app\category.php" crc="1562246127152"/>
-  <file name="C:\pro\first\.idea\workspace.xml" crc="1564684734669"/>
+  <file name="C:\pro\first\.idea\workspace.xml" crc="1565162213331"/>
   <file name="C:\pro\first\.idea\vcs.xml" crc="1564141995045"/>
   <file name="C:\pro\first\.idea\php.xml" crc="1562185145973"/>
   <file name="C:\pro\first\.idea\modules.xml" crc="1562185064236"/>
@@ -7019,6 +7030,6 @@
   <file name="C:\pro\first\phpunit.xml" crc="1561831425969"/>
   <file name="C:\pro\first\package.json" crc="1561831425968"/>
   <file name="C:\pro\first\first _dataBase_Site.sql" crc="1564141995159"/>
-  <file name="C:\pro\first\composer.json" crc="1561831425890"/>
+  <file name="C:\pro\first\composer.json" crc="1565116247000"/>
  </filescache>
 </project>
